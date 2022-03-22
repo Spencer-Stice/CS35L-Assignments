@@ -1,0 +1,30 @@
+commit 8174627b3d32dc80cb477b3fa46971955f26c6b2
+Author: Đoàn Trần Công Danh <congdanhqx@gmail.com>
+Date:   Sun Aug 22 15:49:08 2021 +0700
+
+These were authored by Đoàn Trần Công Danh.
+
+This is a description of the code that fixes these problems from the commit message:
+ In diff_unmerge(), NULL will be returned if the requested path is
+    outside of the interesting directories, thus we'll run into NULL
+    pointer dereference in run_diff_files when trying to dereference
+    its return value.
+
+    Checking for return value of diff_unmerge before dereferencing
+    is not sufficient, though. Since, diff engine will try to work on such
+    pathspec later.
+
+    Let's not run diff on those unintesting entries, instead.
+    As a side effect, by skipping like that, we can save some CPU cycles.
+
+Essentially, they stopped running diff on 'uninteresting' directories which stopped a NULL pointer dereferencing,
+which prevents incorrect results from this option.
+
+To find this, I ran the command
+git log | grep "git diff --relative" --context=10
+while in the git repo I downloaded. I then used 'git show <hash>' on the branches of
+the mergepoint to find the original commit that fixed the issue. I read through the code and commit message
+to be able to summarize it.
+
+This command displayed the two commits with commit messages that mention
+fixing these problems.

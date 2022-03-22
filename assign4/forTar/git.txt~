@@ -1,0 +1,5 @@
+The difference between the two is that the version I downloaded only contains
+the main branch while the one in ~eggert/... contains the branches maint, next
+, seen, and todo as well. This means that someone (probably Dr.Eggert) has
+made changes to the source code of git, potentially for the purposes of
+improving it/modifying it to the way he wants it to work.

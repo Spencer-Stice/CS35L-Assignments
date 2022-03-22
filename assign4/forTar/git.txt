@@ -1,0 +1,9 @@
+The difference between the two is that the version I downloaded only contains
+the main branch while the one in ~eggert/... contains the local branches maint, next
+, seen, and todo as well. These additional branches are 'remote tracking branches',
+which are local branches that have a direct relationship with a remote branch so that when one uses git push
+or git pull, the branches know to automatically use each other's data. Someone must have ran the git checkout -b
+command to create local copies of the remote branches. When one downloads the original repository, it includes
+the information about the remote branches as well, so they are not lost, but one must use checkout to 
+view them locally. If one uses git checkout -b <branch> --track <remote>/<branch>, a remote tracking branch is
+established.

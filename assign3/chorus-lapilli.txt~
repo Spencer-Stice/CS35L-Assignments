@@ -1,0 +1,113 @@
+Chorus-lapilli log:
+
+SECTION I: CHANGES IMPLEMENTED FROM ORIGINAL TIC-TAC-TOE
+The first thing I did to produce this game was to create
+a new react app where I copied the code from the first app
+so that I could start with a good template.
+
+Then, I decided that I would first limit the number of pieces
+for each player to three by preventing more pieces
+from being added after that. To do this, I created boolean
+variables to keep track of if the player already has
+three pieces on the board as well as integer variables to
+count the current pieces. Each time a player adds a piece,
+I would add one to this counter and I added additional
+conditions for adding a piece where the player can only add a
+piece if my boolean variables indicate that there is
+more room for them.
+
+At this point, the players are only allowed to have three
+pieces on the board, although they cannot yet move them
+around.
+
+Next, I added a variable to store where the last clicked
+piece was. I used this new variable to allow a player to
+click a piece and move it to a new position on the board.
+This also required updating when the players' turn is over.
+To do this, I added additional conditional statements for
+the new cases and tested them to make sure they worked.
+
+At this point, the players are able to move their pieces
+around, although they are still able to move to illegal
+spaces and move on top of other pieces, removing them from the game.
+
+Next, I added an additional conditional statement which
+does not allow players to place pieces where there are
+already pieces placed. I also added another conditional
+statement which prevents players from moving to squares
+either already occupied by pieces or squares that are not
+adjacent to their current square.
+
+At this point, the placing and moving of the pieces has
+complete functionality as far as I have tested. Next, I need
+to implement the center of the board related functionality/rules.
+
+Although I thought this would be challenging and take significant
+time to implement, I disovered, luckily for me,
+that because I had written the code in a certain way so far
+with multiple conditional statements, I could simply add
+another conditional to implement the center square functionality.
+
+So, I added another conditional where, once there are three pieces
+on the board, if a player has a piece in the
+middle square, they must either move this piece on the next turn
+or win the game. I do this by checking if they have
+a piece in the middle, and if they do, I ensure that their selected
+piece to move is the one in the middle OR 
+their next move is a winning move (I check this by calling the
+calculateWinner function and if they do not win,
+I revert their last move).
+
+At this point, as far as I have tested, I have correctly
+implemented to full Chorus Lapilli functionality.
+
+SECTION II: INTERACTION WITH BROWSER
+
+After starting the app using the 'npm start' command,
+the react app should appear in the browser with an empty
+board and an indicator as to which player's turn it is.
+
+To begin the game, each player can simply click on an
+empty square to add their piece to it on their turn. Note
+that players are unable to add their piece to an already
+-occupied square.
+
+After each player has added their three pieces to the board,
+if no player has yet won the game, players need to 
+simply click on one of their pieces and click on a
+valid square to move that piece to (this requires a total of
+two clicks). If the player selects a piece but decides
+to move a different piece, simply clicking the other piece
+will select the new piece. Note that players will not be
+able to move their opponent's pieces and will not be able
+to move their piece to an invalid square. Additionally,
+if a player occupies the center of the board, the
+implementation will not allow the player to make another
+move if it does not either win them the game or they 
+do not move their center piece from the center.
+
+npm notice
+npm notice 📦  chorus-lapilli@0.1.0
+npm notice === Tarball Contents ===
+npm notice 3.4kB README.md
+npm notice 25B   chorus-lapilli.txt
+npm notice 817B  package.json
+npm notice 3.9kB public/favicon.ico
+npm notice 1.7kB public/index.html
+npm notice 5.3kB public/logo192.png
+npm notice 9.7kB public/logo512.png
+npm notice 492B  public/manifest.json
+npm notice 67B   public/robots.txt
+npm notice 639B  src/index.css
+npm notice 4.7kB src/index.js
+npm notice === Tarball Details ===
+npm notice name:          chorus-lapilli
+npm notice version:       0.1.0
+npm notice filename:      chorus-lapilli-0.1.0.tgz
+npm notice package size:  23.5 kB
+npm notice unpacked size: 30.7 kB
+npm notice shasum:        3b8fe515e2cf02875bf893c5c3f2904d53dac7cb
+npm notice integrity:     sha512-x/p+F1C5WQKWt[...]FfuaqYH98CaIg==
+npm notice total files:   11
+npm notice
+chorus-lapilli-0.1.0.tgz

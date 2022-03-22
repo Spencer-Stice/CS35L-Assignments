@@ -1,0 +1,17 @@
+Final answer:
+
+In commit c12b432741eed9a422fbf99fa27af6e7a941d88b, authored by Arthur David
+Olson on Thu Dec 21 11:43:42 1995 in time zone -0500, in the northamerica
+file, the quote from the book The American Atlas (5th edition) by Thomas G.
+Shanks which is the subject of the question appears as an addition to the file
+in the form of a new comment from Dr. Eggert when he describes the 345 
+partitions of Indiana.
+
+Commands:
+
+First I ran git log to test how it worked. Then I used
+git log -S"Even newspaper reports present contradictory information." to
+search for where in the source code of the git project this sentence was
+added. Once I found the correct commit (it only took one execution of git log
+-S), I used grep to search for the sentence in question and added the
+--context option to also read lines around this sentence.

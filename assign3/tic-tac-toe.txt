@@ -1,0 +1,54 @@
+Tic-tac-toe log:
+
+I downloaded Node.JS version 16.13.2 LTS including chocolatey, this forced me
+to reboot my computer. 
+
+I downloaded npm version 8.1.2 and the create-react-app module. I then used 
+this module to create a new, empty react app on my local machine.
+
+I removed all default files from the src folder and copied the code from the
+tutorial into new files. I then ran the command npm start, which displayed an
+empty tic-tac-toe (ttt) board in my browser.
+
+Next, I followed the tutorial and started by adding the this.props.value part
+to the Sqaure class. This printed out the numbers 0-8 on the squares. Then I
+modified the Square constructor to have an initial state of Null and in the 
+render function it would switch to X. This made it so that the squares would
+display an X when clicked.
+
+Then, I downloaded a chrome extension that allows me to view the react
+components in a tree view.
+
+Next, I added a constructor to the board class which creates an array of 9
+squares that all have a null state initially. Then I changed the renderSquare 
+function to set the value of square to reflect the new array values. I also
+created an onClick event in the renderSquare function which calls the
+handleClick function, which I hadn't written yet.
+
+In the square class, I added an onClick function that would call the Board's
+onClick function. So, when a square is clicked, it calls the Board's onClick 
+function which in turn calls handleClick.
+
+Then I defined handleClick so that when a square is clicked, an X appears in
+the square. I did this by created a new copy of the squares state array and
+setting the squares' states individually. Now the squares are controlled 
+components.
+
+After all of this, all the squares display an X when clicked but I know that
+they are all controlled by the board now.
+
+Next, I changed the Square class to be a function component,
+which doesn't change functionality.
+
+To complete the game, I added a bit that flips back and forth to
+keep track of which player's turn
+it currently is. I also added a function to detect if a player
+has one the game, this serves as a
+helper function and allows the game to end if a player wins the game.
+I also added a brief check 
+before a player places another piece to check if a player
+already has a piece in the selected spot
+or if someone has already won the game.
+
+The results of the above changes include a complete,
+functioning tic-tac-toe game. 
